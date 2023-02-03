@@ -44,7 +44,7 @@ def _dataset_info(txt_labels):
 
 def get_split_dataset_info(txt_list, val_percentage=None):
     names, labels = _dataset_info(txt_list)
-    return get_random_subset(names, labels, val_percentage)
+    return names, labels
 
 
 class ImageDataset(data.Dataset):

@@ -23,6 +23,7 @@ import random
 from tensorboardX import SummaryWriter
 from collections import OrderedDict
 import math
+import wandb
 
 # sys.path.append('/home/cjm/disk1/research/tent')
 # import tent
@@ -501,8 +502,10 @@ if __name__ == '__main__':
     parser.add_argument('--meta_step_size', type=float, default=1e-3, help='meta learning rate')
     parser.add_argument('--clip_value', type=float, default=1.0, help='gradient clip')
     
-
     args = parser.parse_args()
+
+    wandb.login()
+    wandb.init(project="CCST", entity="longht", name=f'{args.target}-{args.dg_method}')
 
     device = torch.device(f'cuda:{args.gpu}' if torch.cuda.is_available() else 'cpu')
 
@@ -515,8 +518,8 @@ if __name__ == '__main__':
 
     print('Device:', device)
     exp_folder = f'{args.dataset}/{args.mode}_{args.fusion_mode}_{args.dg_method}_{args.network}_locIter{args.wk_iters}/Target_{args.target}_seed_{seed}'
-    if args.net2:
-        exp_folder = exp_folder.replace(args.network, f'{args.network}_net2')
+    # if args.net2:
+    #     exp_folder = exp_folder.replace(args.network, f'{args.network}_net2')
     args.save_path = os.path.join(args.save_path, exp_folder)
     log = args.log
     if log:
@@ -673,6 +676,8 @@ if __name__ == '__main__':
                         train_loss, train_acc = train(models[client_idx], train_loaders[client_idx], optimizers[client_idx], loss_fun, client_num, device, args, iter_idx, logger)
                 print(' {:<11s}| Train Loss: {:.4f}'.format(datasets[client_idx], train_loss))
                 print(' {:<11s}| Train Class Acc: {:.4f}'.format(datasets[client_idx], train_acc))
+                wandb.log({f'{datasets[client_idx]} train loss': train_loss, 
+                           f'{datasets[client_idx]} train accuracy': train_acc}, step=a_iter)
                 if args.log:
                     logfile.write("Train Loss is {:.4f}\n".format(train_loss))
                     logfile.write("Train Class Accuracy is {:.4f}\n".format(train_acc))
@@ -697,6 +702,8 @@ if __name__ == '__main__':
                     val_loss, val_acc = test(server_model, val_loader, loss_fun, device, args) 
                 print(' {:<11s}| Global Val Loss: {:.4f}'.format(datasets[client_idx], val_loss))
                 print(' {:<11s}| Global Val Class Acc: {:.4f}'.format(datasets[client_idx], val_acc))
+                wandb.log({f'{datasets[client_idx]} global validation loss': val_loss, 
+                           f'{datasets[client_idx]} global validation accuracy': val_acc}, step=a_iter)
                 val_loss_average += val_loss
                 val_class_acc_average += val_acc
                 if args.log:
@@ -718,6 +725,8 @@ if __name__ == '__main__':
             test_acc_ = test_acc
             print(' {:<11s}| Global Test Loss: {:.4f}'.format(target_dataset[0], test_loss))
             print(' {:<11s}| Global Test Class Acc: {:.4f}'.format(target_dataset[0], test_acc))
+            wandb.log({f'{target_dataset[0]} global test loss': test_loss, 
+                       f'{target_dataset[0]} global test accuracy': test_acc}, step=a_iter)
             if args.log:
                 logfile.write("-------------Test server model on  target domain testset----------------\n")
                 logfile.write(' {:<11s}| Global Test Loss: {:.4f}\n'.format(target_dataset[0], test_loss))

@@ -9,6 +9,7 @@ from torchvision import transforms
 from data import StandardDataset
 from data.ImageLoader import ImageDataset, ImageTestDataset, get_split_dataset_info, _dataset_info, JigsawDataset, FedDGDataset, PACS_AMP, OfficeHome_AMP, Camelyon17_AMP
 from data.concat_dataset import ConcatDataset
+import pdb
 
 
 pacs_datasets = ["art_painting", "cartoon", "photo", "sketch"]
@@ -70,17 +71,20 @@ def get_train_dataloader(args):
     for dname in dataset_list:
         print("Prepare %s ..." % dname)
  
-        train_txt_path = join(dirname(__file__), 'txt_lists', f'{args.dataset.lower()}_{args.fusion_mode}/{args.target}')
+        # train_txt_path = join(dirname(__file__), 'txt_lists', f'{args.dataset.lower()}_{args.fusion_mode}/{args.target}')
+        train_txt_path = join(dirname(__file__), 'txt_lists', f'{args.dataset.lower()}')
 
-        name_train, name_val, labels_train, labels_val = get_split_dataset_info(join(train_txt_path, '%s_train.txt' % dname), args.val_size)
+        # name_train, name_val, labels_train, labels_val = get_split_dataset_info(join(train_txt_path, '%s_train.txt' % dname), args.val_size)
+        name_train, labels_train = get_split_dataset_info(join(train_txt_path, '%s_train.txt' % dname))
+        name_val, labels_val = get_split_dataset_info(join(train_txt_path, '%s_val.txt' % dname))
 
         
         name_train, labels_train = creat_train_loader_list(name_train, labels_train, args.fusion_mode, args.source, args.target)
 
         
-        import pdb; pdb.set_trace()
+        # pdb.set_trace()
         if args.mode == 'deepall':
-            name_train_all +=  name_train
+            name_train_all += name_train
             labels_train_all += labels_train
         else:
             if args.dg_method.lower() == 'jigsaw':
