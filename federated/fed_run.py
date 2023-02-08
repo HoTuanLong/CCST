@@ -24,6 +24,8 @@ from tensorboardX import SummaryWriter
 from collections import OrderedDict
 import math
 import wandb
+import concurrent.futures
+
 
 # sys.path.append('/home/cjm/disk1/research/tent')
 # import tent
@@ -455,6 +457,30 @@ def communication(args, server_model, models, client_weights):
 
     return server_model, models
 
+def process_client(client_idx, args, models, train_loaders, optimizers, loss_fun, client_num, datasets, a_iter, iter_idx, logger, logfile):
+    divice_list = [1, 2, 2, 3, 3]
+    device_client = torch.device(f'cuda:{divice_list[client_idx]}')
+    if args.mode.lower() == 'fedprox':
+        if a_iter > 0:
+            train_loss, train_acc = train_fedprox(args, models[client_idx], train_loaders[client_idx], optimizers[client_idx], loss_fun, client_num, device_client)
+        else:
+            train_loss, train_acc = train(models[client_idx], train_loaders[client_idx], optimizers[client_idx], loss_fun, client_num, device_client, args, iter_idx, logger)
+    else:
+        if args.dg_method.lower() == 'feddg':
+            train_loss, train_acc = train_meta(models[client_idx], train_loaders[client_idx], optimizers[client_idx], loss_fun, client_num, device_client, args, iter_idx, logger)
+        else:
+            train_loss, train_acc = train(models[client_idx], train_loaders[client_idx], optimizers[client_idx], loss_fun, client_num, device_client, args, iter_idx, logger)
+    print(' {:<11s}| Train Loss: {:.4f}'.format(datasets[client_idx], train_loss))
+    print(' {:<11s}| Train Class Acc: {:.4f}'.format(datasets[client_idx], train_acc))
+    wandb.log({f'{datasets[client_idx]} train loss': train_loss, 
+               f'{datasets[client_idx]} train accuracy': train_acc}, step=a_iter)
+    if args.log:
+        logfile.write("Train Loss is {:.4f}\n".format(train_loss))
+        logfile.write("Train Class Accuracy is {:.4f}\n".format(train_acc))
+        # running_data['train_loss'] = train_loss
+        # running_data['train_acc_c'] = train_acc
+        logfile.flush()
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--log', action='store_true', help ='whether to make a log')
@@ -473,7 +499,7 @@ if __name__ == '__main__':
     # parser.add_argument('--mu', type=float, default=1e-2, help='The hyper parameter for fedprox')
     # Dataset setting
     parser.add_argument('--percent', type = float, default= 0.1, help ='percentage of dataset to train')
-    parser.add_argument("--n_classes", "-c", type=int, default=10, help="Number of classes")
+    parser.add_argument("--n_classes", "-c", type=int, default=345, help="Number of classes")
     parser.add_argument("--dataset", choices=['pacs', 'officehome', 'digitsfive', 'camelyon17'], default='pacs', help="Dataset, to indicate the txt path")
     parser.add_argument("--source", choices=available_datasets, help="Source", nargs='+')
     parser.add_argument("--target", choices=available_datasets, help="Target")
@@ -663,120 +689,76 @@ if __name__ == '__main__':
             print("== Train epoch {} ===".format(iter_idx))
             if args.log: logfile.write("== Train epoch {} ===\n".format(iter_idx))
             
-            for client_idx in range(client_num):
-                if args.mode.lower() == 'fedprox':
-                    if a_iter > 0:
-                        train_loss, train_acc = train_fedprox(args, models[client_idx], train_loaders[client_idx], optimizers[client_idx], loss_fun, client_num, device)
-                    else:
-                        train_loss, train_acc = train(models[client_idx], train_loaders[client_idx], optimizers[client_idx], loss_fun, client_num, device, args, iter_idx, logger)
-                else:
-                    if args.dg_method.lower() == 'feddg':
-                        train_loss, train_acc = train_meta(models[client_idx], train_loaders[client_idx], optimizers[client_idx], loss_fun, client_num, device, args, iter_idx, logger)
-                    else:
-                        train_loss, train_acc = train(models[client_idx], train_loaders[client_idx], optimizers[client_idx], loss_fun, client_num, device, args, iter_idx, logger)
-                print(' {:<11s}| Train Loss: {:.4f}'.format(datasets[client_idx], train_loss))
-                print(' {:<11s}| Train Class Acc: {:.4f}'.format(datasets[client_idx], train_acc))
-                wandb.log({f'{datasets[client_idx]} train loss': train_loss, 
-                           f'{datasets[client_idx]} train accuracy': train_acc}, step=a_iter)
-                if args.log:
-                    logfile.write("Train Loss is {:.4f}\n".format(train_loss))
-                    logfile.write("Train Class Accuracy is {:.4f}\n".format(train_acc))
-                    # running_data['train_loss'] = train_loss
-                    # running_data['train_acc_c'] = train_acc
-                    logfile.flush()
+            # for client_idx in range(client_num):
+            #     device_client = torch.device(f'cuda:{client_idx + 1}')
+            #     if args.mode.lower() == 'fedprox':
+            #         if a_iter > 0:
+            #             train_loss, train_acc = train_fedprox(args, models[client_idx], train_loaders[client_idx], optimizers[client_idx], loss_fun, client_num, device_client)
+            #         else:
+            #             train_loss, train_acc = train(models[client_idx], train_loaders[client_idx], optimizers[client_idx], loss_fun, client_num, device_client, args, iter_idx, logger)
+            #     else:
+            #         if args.dg_method.lower() == 'feddg':
+            #             train_loss, train_acc = train_meta(models[client_idx], train_loaders[client_idx], optimizers[client_idx], loss_fun, client_num, device_client, args, iter_idx, logger)
+            #         else:
+            #             train_loss, train_acc = train(models[client_idx], train_loaders[client_idx], optimizers[client_idx], loss_fun, client_num, device_client, args, iter_idx, logger)
+            #     print(' {:<11s}| Train Loss: {:.4f}'.format(datasets[client_idx], train_loss))
+            #     print(' {:<11s}| Train Class Acc: {:.4f}'.format(datasets[client_idx], train_acc))
+            #     wandb.log({f'{datasets[client_idx]} train loss': train_loss, 
+            #                f'{datasets[client_idx]} train accuracy': train_acc}, step=a_iter)
+            #     if args.log:
+            #         logfile.write("Train Loss is {:.4f}\n".format(train_loss))
+            #         logfile.write("Train Class Accuracy is {:.4f}\n".format(train_acc))
+            #         # running_data['train_loss'] = train_loss
+            #         # running_data['train_acc_c'] = train_acc
+            #         logfile.flush()
+            with concurrent.futures.ThreadPoolExecutor() as executor:
+                client_futures = [executor.submit(process_client, client_idx, args, models, train_loaders, optimizers, loss_fun, client_num, datasets, a_iter, iter_idx, logger, logfile) for client_idx in range(client_num)]
+                concurrent.futures.wait(client_futures)
+
+        
         with torch.no_grad():
             # aggregation
             server_model, models = communication(args, server_model, models, client_weights)
-                    
-            # validate global model
-            print("----------------Validate global model on source domains----------------")
-            val_loss_average, val_class_acc_average, best_test, test_acc_ = 0,0,0,0
-            for client_idx in range(client_num):
-                val_loader = val_loaders[client_idx]
-                # val_loader = train_loaders[client_idx]
-                # print('use model',client_idx)
-                if args.mode=='fedbn':
-                    # FedBN test local model on source domains
-                    val_loss, val_acc = test(models[client_idx], val_loader, loss_fun, device, args) 
-                else:
-                    val_loss, val_acc = test(server_model, val_loader, loss_fun, device, args) 
-                print(' {:<11s}| Global Val Loss: {:.4f}'.format(datasets[client_idx], val_loss))
-                print(' {:<11s}| Global Val Class Acc: {:.4f}'.format(datasets[client_idx], val_acc))
-                wandb.log({f'{datasets[client_idx]} global validation loss': val_loss, 
-                           f'{datasets[client_idx]} global validation accuracy': val_acc}, step=a_iter)
-                val_loss_average += val_loss
-                val_class_acc_average += val_acc
+            model_dicts = {
+                                'server_model': server_model.state_dict(),
+                                'a_iter': a_iter
+                          }
+            torch.save(model_dicts, SAVE_PATH+'_latest')
+
+            if (a_iter + 1) % 100 == 0:
+
+                print("-------------Test server model on target domain testset----------------")
+                # test_loss, test_acc = test(server_model, target_test_loader, loss_fun, device, args)
+                test_loss, test_acc = test(server_model, target_test_loader, loss_fun, torch.device(f'cuda:1'), args)
+                test_acc_ = test_acc
+                print(' {:<11s}| Global Test Loss: {:.4f}'.format(target_dataset[0], test_loss))
+                print(' {:<11s}| Global Test Class Acc: {:.4f}'.format(target_dataset[0], test_acc))
+                wandb.log({f'{target_dataset[0]} global test loss': test_loss, 
+                        f'{target_dataset[0]} global test accuracy': test_acc}, step=a_iter)
                 if args.log:
-                    logfile.write("----------------Validate global model on source domains----------------\n")
-                    logfile.write(' {:<11s}| Global Val Loss: {:.4f}\n'.format(datasets[client_idx], train_loss))
-                    logfile.write(' {:<11s}| Global Val Class Acc: {:.4f}\n'.format(datasets[client_idx], val_acc))
+                    logfile.write("-------------Test server model on  target domain testset----------------\n")
+                    logfile.write(' {:<11s}| Global Test Loss: {:.4f}\n'.format(target_dataset[0], test_loss))
+                    logfile.write(' {:<11s}| Global Test Class Acc: {:.4f}\n'.format(target_dataset[0], test_acc))
+                    # running_data['test_loss'] = test_loss
+                    # running_data['test_c_acc'] = test_acc
+                if args.tf_logger:
+                    writer.add_scalar('target_domain_test_acc', test_acc, a_iter) 
 
 
+                
 
-            # record
-            val_loss_average /= client_num
-            val_class_acc_average /= client_num
-            if args.tf_logger:
-                writer.add_scalar('val_class_acc_average', val_class_acc_average, a_iter)
+                # # save latest model
+                # if a_iter % args.save_freq == 0 and a_iter > 0 : # 20
+                #     if args.mode.lower() == 'fedbn':
+                #         model_dicts = {'server_model': server_model.state_dict(),
+                #                         'a_iter': a_iter}
+                #         for model_idx, model in enumerate(models):
+                #             model_dicts['model_{}'.format(model_idx)] = model.state_dict()    
+                #     else:
+                #         model_dicts = {
+                #                 'server_model': server_model.state_dict(),
+                #                 'a_iter': a_iter
+                #             }
 
-            print("-------------Test server model on target domain testset----------------")
-            # test_loss, test_acc = test(server_model, target_test_loader, loss_fun, device, args)
-            test_loss, test_acc = test(server_model, target_test_loader, loss_fun, device, args)
-            test_acc_ = test_acc
-            print(' {:<11s}| Global Test Loss: {:.4f}'.format(target_dataset[0], test_loss))
-            print(' {:<11s}| Global Test Class Acc: {:.4f}'.format(target_dataset[0], test_acc))
-            wandb.log({f'{target_dataset[0]} global test loss': test_loss, 
-                       f'{target_dataset[0]} global test accuracy': test_acc}, step=a_iter)
-            if args.log:
-                logfile.write("-------------Test server model on  target domain testset----------------\n")
-                logfile.write(' {:<11s}| Global Test Loss: {:.4f}\n'.format(target_dataset[0], test_loss))
-                logfile.write(' {:<11s}| Global Test Class Acc: {:.4f}\n'.format(target_dataset[0], test_acc))
-                # running_data['test_loss'] = test_loss
-                # running_data['test_c_acc'] = test_acc
-            if args.tf_logger:
-                writer.add_scalar('target_domain_test_acc', test_acc, a_iter) 
+                #     torch.save(model_dicts, SAVE_PATH+'_latest')
 
-
-            
-
-            # save latest model
-            if a_iter % args.save_freq == 0 and a_iter > 0 : # 20
-                if args.mode.lower() == 'fedbn':
-                    model_dicts = {'server_model': server_model.state_dict(),
-                                    'a_iter': a_iter}
-                    for model_idx, model in enumerate(models):
-                        model_dicts['model_{}'.format(model_idx)] = model.state_dict()    
-                else:
-                    model_dicts = {
-                            'server_model': server_model.state_dict(),
-                            'a_iter': a_iter
-                        }
-
-                torch.save(model_dicts, SAVE_PATH+'_latest')
-
-            # save best model
-            if val_class_acc_average > best_val_class_acc:
-                best_val_class_acc = val_class_acc_average
-                best_test = test_acc_
-                print(' Saving current best checkpoints to {}...'.format(SAVE_PATH))
-                if args.log:
-                    logfile.write(' Saving current best checkpoints to {}...\n'.format(SAVE_PATH))
-                if args.mode.lower() == 'fedbn':
-                    model_dicts = {'server_model': server_model.state_dict(),
-                                    'a_iter': a_iter}
-                    for model_idx, model in enumerate(models):
-                        model_dicts['model_{}'.format(model_idx)] = model.state_dict()
-                    
-                    torch.save(model_dicts, SAVE_PATH)
-                else:
-                    torch.save({
-                            'server_model': server_model.state_dict(),
-                            'a_iter': a_iter
-                        }, SAVE_PATH)
-
-
-
-    if log:
-        logfile.write(f'Test result using the global model with best val accuracy: {best_test} on {args.target}')
-        logfile.flush()
-        logfile.close()

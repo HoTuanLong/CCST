@@ -1,0 +1,145 @@
+2023-02-04 08:10:43,450 INFO    StreamThr :57845 [internal.py:wandb_internal():87] W&B internal server running at pid: 57845, started at: 2023-02-04 08:10:43.449934
+2023-02-04 08:10:43,453 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status
+2023-02-04 08:10:43,455 INFO    WriterThread:57845 [datastore.py:open_for_write():85] open: /home/ubuntu/long.ht/CCST/wandb/run-20230204_081043-ivpodvuo/run-ivpodvuo.wandb
+2023-02-04 08:10:43,456 DEBUG   SenderThread:57845 [sender.py:send():334] send: header
+2023-02-04 08:10:43,459 DEBUG   SenderThread:57845 [sender.py:send():334] send: run
+2023-02-04 08:10:44,244 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: check_version
+2023-02-04 08:10:44,246 INFO    SenderThread:57845 [dir_watcher.py:__init__():216] watching files in: /home/ubuntu/long.ht/CCST/wandb/run-20230204_081043-ivpodvuo/files
+2023-02-04 08:10:44,247 INFO    SenderThread:57845 [sender.py:_start_run_threads():1065] run started: ivpodvuo with start time 1675498243.450024
+2023-02-04 08:10:44,247 DEBUG   SenderThread:57845 [sender.py:send_request():361] send_request: summary_record
+2023-02-04 08:10:44,247 INFO    SenderThread:57845 [sender.py:_save_file():1319] saving file wandb-summary.json with policy end
+2023-02-04 08:10:44,248 DEBUG   SenderThread:57845 [sender.py:send_request():361] send_request: check_version
+2023-02-04 08:10:44,463 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: run_start
+2023-02-04 08:10:44,473 DEBUG   HandlerThread:57845 [system_info.py:__init__():31] System info init
+2023-02-04 08:10:44,473 DEBUG   HandlerThread:57845 [system_info.py:__init__():46] System info init done
+2023-02-04 08:10:44,473 INFO    HandlerThread:57845 [system_monitor.py:start():151] Starting system monitor
+2023-02-04 08:10:44,473 INFO    SystemMonitor:57845 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2023-02-04 08:10:44,474 INFO    HandlerThread:57845 [system_monitor.py:probe():172] Collecting system info
+2023-02-04 08:10:44,474 INFO    SystemMonitor:57845 [interfaces.py:start():168] Started cpu
+2023-02-04 08:10:44,474 INFO    SystemMonitor:57845 [interfaces.py:start():168] Started disk
+2023-02-04 08:10:44,475 INFO    SystemMonitor:57845 [interfaces.py:start():168] Started gpu
+2023-02-04 08:10:44,476 INFO    SystemMonitor:57845 [interfaces.py:start():168] Started memory
+2023-02-04 08:10:44,477 INFO    SystemMonitor:57845 [interfaces.py:start():168] Started network
+2023-02-04 08:10:44,573 DEBUG   HandlerThread:57845 [system_info.py:probe():195] Probing system
+2023-02-04 08:10:44,576 DEBUG   HandlerThread:57845 [system_info.py:_probe_git():180] Probing git
+2023-02-04 08:10:44,584 DEBUG   HandlerThread:57845 [system_info.py:_probe_git():188] Probing git done
+2023-02-04 08:10:44,584 DEBUG   HandlerThread:57845 [system_info.py:probe():241] Probing system done
+2023-02-04 08:10:44,584 DEBUG   HandlerThread:57845 [system_monitor.py:probe():181] {'os': 'Linux-5.15.0-47-generic-x86_64-with-glibc2.35', 'python': '3.10.5', 'heartbeatAt': '2023-02-04T08:10:44.573849', 'startedAt': '2023-02-04T08:10:43.440224', 'docker': None, 'cuda': None, 'args': ('--mode', 'fedavg', '--dg_method', 'no_DG', '--source', '1', '2', '3', '4', '5', '--target', '0', '--random_horiz_flip', '0.5', '--network', 'resnet50', '--lr', '0.001', '--image_size', '222', '--batch', '64', '--log'), 'state': 'running', 'program': '/home/ubuntu/long.ht/CCST/./federated/fed_run.py', 'codePath': 'federated/fed_run.py', 'git': {'remote': 'https://github.com/HoTuanLong/CCST.git', 'commit': '3039296e5ad0d99264afedb1ad41286e414dadaa'}, 'email': 'hotuanlong0123@gmail.com', 'root': '/home/ubuntu/long.ht/CCST', 'host': 'bfc3208bdaa5', 'username': 'ubuntu', 'executable': '/home/ubuntu/miniconda3/envs/tensorflow/bin/python', 'cpu_count': 32, 'cpu_count_logical': 64, 'cpu_freq': {'current': 1936.0378281249998, 'min': 1200.0, 'max': 3900.0}, 'cpu_freq_per_core': [{'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 3582.103, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 3599.999, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 3590.869, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1500.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 2500.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 3900.0, 'min': 1200.0, 'max': 3900.0}, {'current': 2400.0, 'min': 1200.0, 'max': 3900.0}, {'current': 3398.767, 'min': 1200.0, 'max': 3900.0}, {'current': 3391.198, 'min': 1200.0, 'max': 3900.0}, {'current': 3600.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 3600.0, 'min': 1200.0, 'max': 3900.0}, {'current': 3588.727, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 3900.0, 'min': 1200.0, 'max': 3900.0}, {'current': 3900.0, 'min': 1200.0, 'max': 3900.0}, {'current': 3900.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 3657.721, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 3200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 2500.0, 'min': 1200.0, 'max': 3900.0}, {'current': 2500.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1200.0, 'min': 1200.0, 'max': 3900.0}], 'disk': {'total': 4430.82975769043, 'used': 2824.043270111084}, 'gpu': 'NVIDIA GeForce RTX 3090', 'gpu_count': 8, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3090', 'memory_total': 25769803776}, {'name': 'NVIDIA GeForce RTX 3090', 'memory_total': 25769803776}, {'name': 'NVIDIA GeForce RTX 3090', 'memory_total': 25769803776}, {'name': 'NVIDIA GeForce RTX 3090', 'memory_total': 25769803776}, {'name': 'NVIDIA GeForce RTX 3090', 'memory_total': 25769803776}, {'name': 'NVIDIA GeForce RTX 3090', 'memory_total': 25769803776}, {'name': 'NVIDIA GeForce RTX 3090', 'memory_total': 25769803776}, {'name': 'NVIDIA GeForce RTX 3090', 'memory_total': 25769803776}], 'memory': {'total': 754.5681610107422}}
+2023-02-04 08:10:44,584 INFO    HandlerThread:57845 [system_monitor.py:probe():182] Finished collecting system info
+2023-02-04 08:10:44,584 INFO    HandlerThread:57845 [system_monitor.py:probe():185] Publishing system info
+2023-02-04 08:10:44,584 DEBUG   HandlerThread:57845 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-02-04 08:10:44,585 DEBUG   HandlerThread:57845 [system_info.py:_save_pip():67] Saving pip packages done
+2023-02-04 08:10:44,585 DEBUG   HandlerThread:57845 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-02-04 08:10:45,248 INFO    Thread-13 :57845 [dir_watcher.py:_on_file_created():275] file/dir created: /home/ubuntu/long.ht/CCST/wandb/run-20230204_081043-ivpodvuo/files/conda-environment.yaml
+2023-02-04 08:10:45,249 INFO    Thread-13 :57845 [dir_watcher.py:_on_file_created():275] file/dir created: /home/ubuntu/long.ht/CCST/wandb/run-20230204_081043-ivpodvuo/files/requirements.txt
+2023-02-04 08:10:45,249 INFO    Thread-13 :57845 [dir_watcher.py:_on_file_created():275] file/dir created: /home/ubuntu/long.ht/CCST/wandb/run-20230204_081043-ivpodvuo/files/wandb-summary.json
+2023-02-04 08:10:48,109 DEBUG   HandlerThread:57845 [system_info.py:_save_conda():86] Saving conda packages done
+2023-02-04 08:10:48,110 INFO    HandlerThread:57845 [system_monitor.py:probe():187] Finished publishing system info
+2023-02-04 08:10:48,122 DEBUG   SenderThread:57845 [sender.py:send():334] send: files
+2023-02-04 08:10:48,122 INFO    SenderThread:57845 [sender.py:_save_file():1319] saving file wandb-metadata.json with policy now
+2023-02-04 08:10:48,132 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: stop_status
+2023-02-04 08:10:48,133 DEBUG   SenderThread:57845 [sender.py:send_request():361] send_request: stop_status
+2023-02-04 08:10:48,248 INFO    Thread-13 :57845 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/ubuntu/long.ht/CCST/wandb/run-20230204_081043-ivpodvuo/files/conda-environment.yaml
+2023-02-04 08:10:48,249 INFO    Thread-13 :57845 [dir_watcher.py:_on_file_created():275] file/dir created: /home/ubuntu/long.ht/CCST/wandb/run-20230204_081043-ivpodvuo/files/wandb-metadata.json
+2023-02-04 08:10:48,591 DEBUG   SenderThread:57845 [sender.py:send():334] send: telemetry
+2023-02-04 08:10:48,592 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:10:49,125 INFO    Thread-16 :57845 [upload_job.py:push():143] Uploaded file /tmp/tmpeq_on_30wandb/l742lk1e-wandb-metadata.json
+2023-02-04 08:10:49,249 INFO    Thread-13 :57845 [dir_watcher.py:_on_file_created():275] file/dir created: /home/ubuntu/long.ht/CCST/wandb/run-20230204_081043-ivpodvuo/files/output.log
+2023-02-04 08:10:51,250 INFO    Thread-13 :57845 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/ubuntu/long.ht/CCST/wandb/run-20230204_081043-ivpodvuo/files/output.log
+2023-02-04 08:10:54,032 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:10:59,258 INFO    Thread-13 :57845 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/ubuntu/long.ht/CCST/wandb/run-20230204_081043-ivpodvuo/files/output.log
+2023-02-04 08:10:59,977 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:11:03,132 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:11:03,133 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:11:04,978 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:11:08,198 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:11:09,979 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:11:13,200 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:11:14,984 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:11:16,264 INFO    Thread-13 :57845 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/ubuntu/long.ht/CCST/wandb/run-20230204_081043-ivpodvuo/files/config.yaml
+2023-02-04 08:11:18,202 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:11:20,402 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:11:23,203 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:11:25,403 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:11:28,205 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:11:28,863 WARNING FileStreamThread:57845 [file_stream.py:request_with_retry():667] requests_with_retry encountered retryable exception: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')). func: <bound method Session.post of <requests.sessions.Session object at 0x7fb1e6fd7cd0>>, args: ('https://api.wandb.ai/files/longht/CCST/ivpodvuo/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2023-02-04 08:11:30,404 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:11:33,207 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:11:35,405 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:11:38,208 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:11:40,406 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:11:43,210 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:11:44,478 DEBUG   SystemMonitor:57845 [system_monitor.py:_start():130] Starting system metrics aggregation loop
+2023-02-04 08:11:44,481 DEBUG   SenderThread:57845 [sender.py:send():334] send: stats
+2023-02-04 08:11:45,483 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:11:48,212 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:11:50,484 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:11:53,214 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:11:55,484 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:11:58,216 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:12:00,486 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:12:03,217 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:12:05,486 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:12:08,218 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:12:10,487 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:12:13,220 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:12:14,484 DEBUG   SenderThread:57845 [sender.py:send():334] send: stats
+2023-02-04 08:12:16,486 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:12:18,221 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:12:21,486 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:12:23,224 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:12:26,487 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:12:28,227 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:12:31,488 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:12:33,229 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:12:36,488 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:12:38,230 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:12:41,489 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:12:43,232 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:12:44,486 DEBUG   SenderThread:57845 [sender.py:send():334] send: stats
+2023-02-04 08:12:47,488 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:12:48,233 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:12:52,489 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:12:53,235 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:12:57,489 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:12:58,236 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:13:02,490 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:13:03,238 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:13:07,491 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:13:08,239 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:13:12,492 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:13:13,240 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:13:14,489 DEBUG   SenderThread:57845 [sender.py:send():334] send: stats
+2023-02-04 08:13:18,242 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:13:18,491 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:13:23,243 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:13:23,492 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:13:28,245 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:13:28,493 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:13:33,247 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:13:33,494 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:13:38,249 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:13:38,495 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:13:43,250 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:13:43,495 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:13:44,491 DEBUG   SenderThread:57845 [sender.py:send():334] send: stats
+2023-02-04 08:13:48,252 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:13:49,494 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:13:53,253 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:13:54,495 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:13:58,254 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:13:59,495 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:14:03,256 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:14:04,496 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:14:08,258 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-04 08:14:09,497 DEBUG   HandlerThread:57845 [handler.py:handle_request():144] handle_request: status_report
+2023-02-04 08:14:12,539 ERROR   memory    :57845 [interfaces.py:monitor():129] Failed to sample metric: process no longer exists (pid=57670)
+2023-02-04 08:14:12,539 ERROR   memory    :57845 [interfaces.py:monitor():129] Failed to sample metric: process no longer exists (pid=57670)
+2023-02-04 08:14:12,664 WARNING StreamThr :57845 [internal.py:is_dead():415] Internal process exiting, parent pid 57670 disappeared
+2023-02-04 08:14:12,664 ERROR   StreamThr :57845 [internal.py:wandb_internal():153] Internal process shutdown.
+2023-02-04 08:14:12,702 ERROR   cpu       :57845 [interfaces.py:monitor():129] Failed to sample metric: process no longer exists (pid=57670)
+2023-02-04 08:14:12,705 ERROR   cpu       :57845 [interfaces.py:monitor():129] Failed to sample metric: process no longer exists (pid=57670)
+2023-02-04 08:14:13,498 INFO    SenderThread:57845 [sender.py:finish():1491] shutting down sender
+2023-02-04 08:14:13,498 INFO    HandlerThread:57845 [handler.py:finish():841] shutting down handler
+2023-02-04 08:14:13,498 INFO    WriterThread:57845 [datastore.py:close():299] close: /home/ubuntu/long.ht/CCST/wandb/run-20230204_081043-ivpodvuo/run-ivpodvuo.wandb
+2023-02-04 08:14:14,508 INFO    MainThread:57845 [internal.py:handle_exit():77] Internal process exited

@@ -1,0 +1,30 @@
+Device: cuda:0
+Building server's model...
+Preparing data...
+Prepare 0 ...
+Prepare 2 ...
+Prepare 3 ...
+Prepare 4 ...
+Prepare 5 ...
+Source domain (for training) is ['0', '2', '3', '4', '5']
+Target domain (for testing) is ['1']
+/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/site-packages/torchvision/models/_utils.py:252: UserWarning: Accessing the model URLs via the internal dictionary of the module is deprecated since 0.13 and may be removed in the future. Please access them via the appropriate Weights Enum instead.
+  warnings.warn(
+Saving to /home/ubuntu/long.ht/CCST/utils/../logs/../checkpoint/pacs/fedavg_adain-overall-K3_no_DG_resnet50_locIter1/Target_1_seed_1/iters500_bs32_lr0.001_class345_429
+=============Global iter is 0 ===============
+----------------Training----------------
+== Train epoch 0 ===
+ 0          | Train Loss: 5.5929
+ 0          | Train Class Acc: 0.0428
+ 5          | Train Loss: 5.5170
+ 5          | Train Class Acc: 0.0425
+ 2          | Train Loss: 5.2835
+ 2          | Train Class Acc: 0.0865
+ 3          | Train Loss: 5.3826
+ 3          | Train Class Acc: 0.0826
+ 4          | Train Loss: 4.4179
+ 4          | Train Class Acc: 0.3072
+Traceback (most recent call last):
+  File "/home/ubuntu/long.ht/CCST/./federated/fed_run.py", line 722, in <module>
+    torch.save(model_dicts, SAVE_PATH+'_latest')
+NameError: name 'model_dicts' is not defined

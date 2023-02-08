@@ -1,0 +1,25 @@
+2023-02-04 08:34:34,261 INFO    MainThread:65172 [wandb_setup.py:_flush():68] Configure stats pid to 65172
+2023-02-04 08:34:34,261 INFO    MainThread:65172 [wandb_setup.py:_flush():68] Loading settings from /home/ubuntu/.config/wandb/settings
+2023-02-04 08:34:34,261 INFO    MainThread:65172 [wandb_setup.py:_flush():68] Loading settings from /home/ubuntu/long.ht/CCST/wandb/settings
+2023-02-04 08:34:34,261 INFO    MainThread:65172 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True'}
+2023-02-04 08:34:34,261 INFO    MainThread:65172 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'federated/fed_run.py', 'program': '/home/ubuntu/long.ht/CCST/./federated/fed_run.py'}
+2023-02-04 08:34:34,261 INFO    MainThread:65172 [wandb_init.py:_log_setup():478] Logging user logs to /home/ubuntu/long.ht/CCST/wandb/run-20230204_083434-2u7ausvn/logs/debug.log
+2023-02-04 08:34:34,261 INFO    MainThread:65172 [wandb_init.py:_log_setup():479] Logging internal logs to /home/ubuntu/long.ht/CCST/wandb/run-20230204_083434-2u7ausvn/logs/debug-internal.log
+2023-02-04 08:34:34,262 INFO    MainThread:65172 [wandb_init.py:init():518] calling init triggers
+2023-02-04 08:34:34,262 INFO    MainThread:65172 [wandb_init.py:init():521] wandb.init called with sweep_config: {}
+config: {}
+2023-02-04 08:34:34,262 INFO    MainThread:65172 [wandb_init.py:init():571] starting backend
+2023-02-04 08:34:34,262 INFO    MainThread:65172 [wandb_init.py:init():575] setting up manager
+2023-02-04 08:34:34,269 INFO    MainThread:65172 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-02-04 08:34:34,275 INFO    MainThread:65172 [wandb_init.py:init():582] backend started and connected
+2023-02-04 08:34:34,281 INFO    MainThread:65172 [wandb_init.py:init():670] updated telemetry
+2023-02-04 08:34:34,288 INFO    MainThread:65172 [wandb_init.py:init():710] communicating run to backend with 60.0 second timeout
+2023-02-04 08:34:35,067 INFO    MainThread:65172 [wandb_run.py:_on_init():2121] communicating current version
+2023-02-04 08:34:35,367 INFO    MainThread:65172 [wandb_run.py:_on_init():2125] got version response 
+2023-02-04 08:34:35,367 INFO    MainThread:65172 [wandb_init.py:init():758] starting run threads in backend
+2023-02-04 08:34:39,206 INFO    MainThread:65172 [wandb_run.py:_console_start():2101] atexit reg
+2023-02-04 08:34:39,206 INFO    MainThread:65172 [wandb_run.py:_redirect():1959] redirect: SettingsConsole.WRAP_RAW
+2023-02-04 08:34:39,207 INFO    MainThread:65172 [wandb_run.py:_redirect():2024] Wrapping output streams.
+2023-02-04 08:34:39,207 INFO    MainThread:65172 [wandb_run.py:_redirect():2046] Redirects installed.
+2023-02-04 08:34:39,208 INFO    MainThread:65172 [wandb_init.py:init():798] run started, returning control to user process
+2023-02-04 08:35:14,071 WARNING MsgRouterThr:65172 [router.py:message_loop():77] message_loop has been closed

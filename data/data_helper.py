@@ -12,11 +12,13 @@ from data.concat_dataset import ConcatDataset
 import pdb
 
 
-pacs_datasets = ["art_painting", "cartoon", "photo", "sketch"]
+# pacs_datasets = ["art_painting", "cartoon", "photo", "sketch"]
+pacs_datasets = ['0', '1', '2', '3', '4', '5']
 officehome_datasets = ['art', 'clipart', 'product', 'real_world']
 digit_datasets = ['MNIST', 'MNIST_M', 'SVHN', 'SynthDigits', 'USPS']
 camelyon17_datasets = ['hospital1', 'hospital2', 'hospital3', 'hospital4', 'hospital5']
-available_datasets = pacs_datasets + officehome_datasets + digit_datasets + camelyon17_datasets
+domain_net = ['0', '1', '2', '3', '4', '5']
+available_datasets = pacs_datasets + officehome_datasets + digit_datasets + camelyon17_datasets + domain_net
 
 
 dataset_mean = {

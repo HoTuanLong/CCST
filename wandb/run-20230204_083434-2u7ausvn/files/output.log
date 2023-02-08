@@ -1,0 +1,321 @@
+Device: cuda:0
+Building server's model...
+Preparing data...
+Loading pacs amp lists...
+seen domain freqs:  ['1', '2', '3', '4', '5']
+Prepare 1 ...
+Prepare 2 ...
+Prepare 3 ...
+Prepare 4 ...
+Prepare 5 ...
+Source domain (for training) is ['1', '2', '3', '4', '5']
+Target domain (for testing) is ['0']
+/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/site-packages/torchvision/models/_utils.py:252: UserWarning: Accessing the model URLs via the internal dictionary of the module is deprecated since 0.13 and may be removed in the future. Please access them via the appropriate Weights Enum instead.
+  warnings.warn(
+Saving to /home/ubuntu/long.ht/CCST/utils/../logs/../checkpoint/pacs/fedavg_no_fusion_feddg_resnet50_locIter1/Target_0_seed_1/iters500_bs32_lr0.001_class345_680
+=============Global iter is 0 ===============
+----------------Training----------------
+== Train epoch 0 ===
+=============Global iter is 1 ===============
+----------------Training----------------
+== Train epoch 1 ===
+=============Global iter is 2 ===============
+----------------Training----------------
+== Train epoch 2 ===
+=============Global iter is 3 ===============
+----------------Training----------------
+== Train epoch 3 ===
+=============Global iter is 4 ===============
+----------------Training----------------
+== Train epoch 4 ===
+=============Global iter is 5 ===============
+----------------Training----------------
+== Train epoch 5 ===
+=============Global iter is 6 ===============
+----------------Training----------------
+== Train epoch 6 ===
+=============Global iter is 7 ===============
+----------------Training----------------
+== Train epoch 7 ===
+=============Global iter is 8 ===============
+----------------Training----------------
+== Train epoch 8 ===
+=============Global iter is 9 ===============
+----------------Training----------------
+== Train epoch 9 ===
+=============Global iter is 10 ===============
+----------------Training----------------
+== Train epoch 10 ===
+=============Global iter is 11 ===============
+----------------Training----------------
+== Train epoch 11 ===
+=============Global iter is 12 ===============
+----------------Training----------------
+== Train epoch 12 ===
+=============Global iter is 13 ===============
+----------------Training----------------
+== Train epoch 13 ===
+=============Global iter is 14 ===============
+----------------Training----------------
+== Train epoch 14 ===
+=============Global iter is 15 ===============
+----------------Training----------------
+== Train epoch 15 ===
+=============Global iter is 16 ===============
+----------------Training----------------
+== Train epoch 16 ===
+=============Global iter is 17 ===============
+----------------Training----------------
+== Train epoch 17 ===
+=============Global iter is 18 ===============
+----------------Training----------------
+== Train epoch 18 ===
+=============Global iter is 19 ===============
+----------------Training----------------
+== Train epoch 19 ===
+=============Global iter is 20 ===============
+----------------Training----------------
+== Train epoch 20 ===
+=============Global iter is 21 ===============
+----------------Training----------------
+== Train epoch 21 ===
+=============Global iter is 22 ===============
+----------------Training----------------
+== Train epoch 22 ===
+=============Global iter is 23 ===============
+----------------Training----------------
+== Train epoch 23 ===
+=============Global iter is 24 ===============
+----------------Training----------------
+== Train epoch 24 ===
+=============Global iter is 25 ===============
+----------------Training----------------
+== Train epoch 25 ===
+=============Global iter is 26 ===============
+----------------Training----------------
+== Train epoch 26 ===
+=============Global iter is 27 ===============
+----------------Training----------------
+== Train epoch 27 ===
+=============Global iter is 28 ===============
+----------------Training----------------
+== Train epoch 28 ===
+=============Global iter is 29 ===============
+----------------Training----------------
+== Train epoch 29 ===
+=============Global iter is 30 ===============
+----------------Training----------------
+== Train epoch 30 ===
+=============Global iter is 31 ===============
+----------------Training----------------
+== Train epoch 31 ===
+=============Global iter is 32 ===============
+----------------Training----------------
+== Train epoch 32 ===
+=============Global iter is 33 ===============
+----------------Training----------------
+== Train epoch 33 ===
+=============Global iter is 34 ===============
+----------------Training----------------
+== Train epoch 34 ===
+=============Global iter is 35 ===============
+----------------Training----------------
+== Train epoch 35 ===
+=============Global iter is 36 ===============
+----------------Training----------------
+== Train epoch 36 ===
+=============Global iter is 37 ===============
+----------------Training----------------
+== Train epoch 37 ===
+=============Global iter is 38 ===============
+----------------Training----------------
+== Train epoch 38 ===
+=============Global iter is 39 ===============
+----------------Training----------------
+== Train epoch 39 ===
+=============Global iter is 40 ===============
+----------------Training----------------
+== Train epoch 40 ===
+=============Global iter is 41 ===============
+----------------Training----------------
+== Train epoch 41 ===
+=============Global iter is 42 ===============
+----------------Training----------------
+== Train epoch 42 ===
+=============Global iter is 43 ===============
+----------------Training----------------
+== Train epoch 43 ===
+=============Global iter is 44 ===============
+----------------Training----------------
+== Train epoch 44 ===
+=============Global iter is 45 ===============
+----------------Training----------------
+== Train epoch 45 ===
+=============Global iter is 46 ===============
+----------------Training----------------
+== Train epoch 46 ===
+=============Global iter is 47 ===============
+----------------Training----------------
+== Train epoch 47 ===
+=============Global iter is 48 ===============
+----------------Training----------------
+== Train epoch 48 ===
+=============Global iter is 49 ===============
+----------------Training----------------
+== Train epoch 49 ===
+=============Global iter is 50 ===============
+----------------Training----------------
+== Train epoch 50 ===
+=============Global iter is 51 ===============
+----------------Training----------------
+== Train epoch 51 ===
+=============Global iter is 52 ===============
+----------------Training----------------
+== Train epoch 52 ===
+=============Global iter is 53 ===============
+----------------Training----------------
+== Train epoch 53 ===
+=============Global iter is 54 ===============
+----------------Training----------------
+== Train epoch 54 ===
+=============Global iter is 55 ===============
+----------------Training----------------
+== Train epoch 55 ===
+=============Global iter is 56 ===============
+----------------Training----------------
+== Train epoch 56 ===
+=============Global iter is 57 ===============
+----------------Training----------------
+== Train epoch 57 ===
+=============Global iter is 58 ===============
+----------------Training----------------
+== Train epoch 58 ===
+=============Global iter is 59 ===============
+----------------Training----------------
+== Train epoch 59 ===
+=============Global iter is 60 ===============
+----------------Training----------------
+== Train epoch 60 ===
+=============Global iter is 61 ===============
+----------------Training----------------
+== Train epoch 61 ===
+=============Global iter is 62 ===============
+----------------Training----------------
+== Train epoch 62 ===
+=============Global iter is 63 ===============
+----------------Training----------------
+== Train epoch 63 ===
+=============Global iter is 64 ===============
+----------------Training----------------
+== Train epoch 64 ===
+=============Global iter is 65 ===============
+----------------Training----------------
+== Train epoch 65 ===
+=============Global iter is 66 ===============
+----------------Training----------------
+== Train epoch 66 ===
+=============Global iter is 67 ===============
+----------------Training----------------
+== Train epoch 67 ===
+=============Global iter is 68 ===============
+----------------Training----------------
+== Train epoch 68 ===
+=============Global iter is 69 ===============
+----------------Training----------------
+== Train epoch 69 ===
+=============Global iter is 70 ===============
+----------------Training----------------
+== Train epoch 70 ===
+=============Global iter is 71 ===============
+----------------Training----------------
+== Train epoch 71 ===
+=============Global iter is 72 ===============
+----------------Training----------------
+== Train epoch 72 ===
+=============Global iter is 73 ===============
+----------------Training----------------
+== Train epoch 73 ===
+=============Global iter is 74 ===============
+----------------Training----------------
+== Train epoch 74 ===
+=============Global iter is 75 ===============
+----------------Training----------------
+== Train epoch 75 ===
+=============Global iter is 76 ===============
+----------------Training----------------
+== Train epoch 76 ===
+=============Global iter is 77 ===============
+----------------Training----------------
+== Train epoch 77 ===
+=============Global iter is 78 ===============
+----------------Training----------------
+== Train epoch 78 ===
+=============Global iter is 79 ===============
+----------------Training----------------
+== Train epoch 79 ===
+=============Global iter is 80 ===============
+----------------Training----------------
+== Train epoch 80 ===
+=============Global iter is 81 ===============
+----------------Training----------------
+== Train epoch 81 ===
+=============Global iter is 82 ===============
+----------------Training----------------
+== Train epoch 82 ===
+=============Global iter is 83 ===============
+----------------Training----------------
+== Train epoch 83 ===
+=============Global iter is 84 ===============
+----------------Training----------------
+== Train epoch 84 ===
+=============Global iter is 85 ===============
+----------------Training----------------
+== Train epoch 85 ===
+=============Global iter is 86 ===============
+----------------Training----------------
+== Train epoch 86 ===
+=============Global iter is 87 ===============
+----------------Training----------------
+== Train epoch 87 ===
+=============Global iter is 88 ===============
+----------------Training----------------
+== Train epoch 88 ===
+=============Global iter is 89 ===============
+----------------Training----------------
+== Train epoch 89 ===
+=============Global iter is 90 ===============
+----------------Training----------------
+== Train epoch 90 ===
+=============Global iter is 91 ===============
+----------------Training----------------
+== Train epoch 91 ===
+=============Global iter is 92 ===============
+----------------Training----------------
+== Train epoch 92 ===
+=============Global iter is 93 ===============
+----------------Training----------------
+== Train epoch 93 ===
+=============Global iter is 94 ===============
+----------------Training----------------
+== Train epoch 94 ===
+=============Global iter is 95 ===============
+----------------Training----------------
+== Train epoch 95 ===
+=============Global iter is 96 ===============
+----------------Training----------------
+== Train epoch 96 ===
+=============Global iter is 97 ===============
+----------------Training----------------
+== Train epoch 97 ===
+=============Global iter is 98 ===============
+----------------Training----------------
+== Train epoch 98 ===
+=============Global iter is 99 ===============
+----------------Training----------------
+== Train epoch 99 ===
+Traceback (most recent call last):
+  File "/home/ubuntu/long.ht/CCST/./federated/fed_run.py", line 721, in <module>
+    server_model, models = communication(args, server_model, models, client_weights)
+  File "/home/ubuntu/long.ht/CCST/./federated/fed_run.py", line 413, in communication
+    temp += client_weights[client_idx] * models[client_idx].state_dict()[key]
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:1 and cpu!

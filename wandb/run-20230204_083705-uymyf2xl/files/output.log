@@ -1,0 +1,50 @@
+Device: cuda:0
+Building server's model...
+Preparing data...
+Prepare 1 ...
+Prepare 2 ...
+Prepare 3 ...
+Prepare 4 ...
+Prepare 5 ...
+Source domain (for training) is ['1', '2', '3', '4', '5']
+Target domain (for testing) is ['0']
+/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/site-packages/torchvision/models/_utils.py:252: UserWarning: Accessing the model URLs via the internal dictionary of the module is deprecated since 0.13 and may be removed in the future. Please access them via the appropriate Weights Enum instead.
+  warnings.warn(
+Saving to /home/ubuntu/long.ht/CCST/utils/../logs/../checkpoint/pacs/fedavg_adain-overall-K3_no_DG_resnet50_locIter1/Target_0_seed_1/iters500_bs32_lr0.001_class345_831
+=============Global iter is 0 ===============
+----------------Training----------------
+== Train epoch 0 ===
+Traceback (most recent call last):
+  File "/home/ubuntu/long.ht/CCST/./federated/fed_run.py", line 716, in <module>
+    concurrent.futures.wait(client_futures)
+  File "/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/concurrent/futures/_base.py", line 307, in wait
+    waiter.event.wait(timeout)
+  File "/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/threading.py", line 607, in wait
+    signaled = self._cond.wait(timeout)
+  File "/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/threading.py", line 320, in wait
+    waiter.acquire()
+KeyboardInterrupt
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/home/ubuntu/long.ht/CCST/./federated/fed_run.py", line 714, in <module>
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+  File "/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/concurrent/futures/_base.py", line 637, in __exit__
+    self.shutdown(wait=True)
+  File "/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/concurrent/futures/thread.py", line 235, in shutdown
+    t.join()
+  File "/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/threading.py", line 1096, in join
+    self._wait_for_tstate_lock()
+  File "/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/threading.py", line 1116, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt
+Exception ignored in: <module 'threading' from '/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/threading.py'>
+Traceback (most recent call last):
+  File "/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/threading.py", line 1537, in _shutdown
+    atexit_call()
+  File "/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/concurrent/futures/thread.py", line 31, in _python_exit
+    t.join()
+  File "/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/threading.py", line 1096, in join
+    self._wait_for_tstate_lock()
+  File "/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/threading.py", line 1116, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt:

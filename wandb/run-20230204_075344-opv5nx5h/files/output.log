@@ -1,0 +1,38 @@
+Device: cuda:0
+Building server's model...
+Preparing data...
+Prepare 1 ...
+Prepare 2 ...
+Source domain (for training) is ['1', '2']
+Target domain (for testing) is ['0']
+/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/site-packages/torchvision/models/_utils.py:252: UserWarning: Accessing the model URLs via the internal dictionary of the module is deprecated since 0.13 and may be removed in the future. Please access them via the appropriate Weights Enum instead.
+  warnings.warn(
+Saving to /home/ubuntu/long.ht/CCST/utils/../logs/../checkpoint/pacs/fedavg_no_fusion_no_DG_resnet50_locIter1/Target_0_seed_1/iters500_bs64_lr0.001_class345_229
+=============Global iter is 0 ===============
+----------------Training----------------
+== Train epoch 0 ===
+ 1          | Train Loss: 5.6669
+ 1          | Train Class Acc: 0.0160
+ 2          | Train Loss: 5.5361
+ 2          | Train Class Acc: 0.0465
+----------------Validate global model on source domains----------------
+Traceback (most recent call last):
+  File "/home/ubuntu/long.ht/CCST/./federated/fed_run.py", line 731, in <module>
+    val_loss, val_acc = test(server_model, val_loader, loss_fun, torch.device(f'cuda:1'), args)
+  File "/home/ubuntu/long.ht/CCST/./federated/fed_run.py", line 243, in test
+    for it, (data, class_l) in enumerate(test_loader):
+  File "/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 628, in __next__
+    data = self._next_data()
+  File "/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 671, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 58, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 58, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/ubuntu/long.ht/CCST/data/ImageLoader.py", line 83, in __getitem__
+    img = Image.open(framename).convert('RGB')
+  File "/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/site-packages/PIL/Image.py", line 937, in convert
+    self.load()
+  File "/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/site-packages/PIL/ImageFile.py", line 269, in load
+    n, err_code = decoder.decode(b)
+KeyboardInterrupt

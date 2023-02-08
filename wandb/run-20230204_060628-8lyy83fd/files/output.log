@@ -1,0 +1,32 @@
+Device: cuda:0
+Building server's model...
+Preparing data...
+Prepare 1 ...
+Prepare 2 ...
+Prepare 3 ...
+Prepare 4 ...
+Prepare 5 ...
+Source domain (for training) is ['1', '2', '3', '4', '5']
+Target domain (for testing) is ['0']
+/home/ubuntu/miniconda3/envs/tensorflow/lib/python3.10/site-packages/torchvision/models/_utils.py:252: UserWarning: Accessing the model URLs via the internal dictionary of the module is deprecated since 0.13 and may be removed in the future. Please access them via the appropriate Weights Enum instead.
+  warnings.warn(
+Saving to /home/ubuntu/long.ht/CCST/utils/../logs/../checkpoint/pacs/fedavg_no_fusion_no_DG_resnet50_locIter1/Target_0_seed_1/iters500_bs64_lr0.001_class345_794
+=============Global iter is 0 ===============
+----------------Training----------------
+== Train epoch 0 ===
+ 1          | Train Loss: 5.6676
+ 1          | Train Class Acc: 0.0159
+ 2          | Train Loss: 5.5371
+ 2          | Train Class Acc: 0.0438
+ 3          | Train Loss: 5.6737
+ 3          | Train Class Acc: 0.0399
+ 4          | Train Loss: 5.0806
+ 4          | Train Class Acc: 0.2052
+ 5          | Train Loss: 5.6587
+ 5          | Train Class Acc: 0.0231
+Traceback (most recent call last):
+  File "/home/ubuntu/long.ht/CCST/./federated/fed_run.py", line 692, in <module>
+    device_client = torch.device(f'cuda:{client_idx + 1}')
+  File "/home/ubuntu/long.ht/CCST/./federated/fed_run.py", line 413, in communication
+    temp += client_weights[client_idx] * models[client_idx].state_dict()[key]
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:1 and cpu!
